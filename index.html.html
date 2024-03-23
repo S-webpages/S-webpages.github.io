@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome Cutie Patutie</title>
+<style>
+  body {
+    font-family: 'Verdana', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0e6f4 url('https://images.unsplash.com/photo-1621951942127-24189a01b644?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat fixed center;
+    background-size: cover;
+    color: #4b0082; /* Dark purple */
+  }
+  .container {
+    text-align: center;
+    margin-top: 200px; /* Adjusted margin-top for centering */
+  }
+  h1 {
+    font-size: 36px;
+    color: #9370db; /* Medium purple */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for emphasis */
+    cursor: pointer; /* Add cursor pointer for clickable effect */
+    transition: font-size 0.3s; /* Smooth transition for font size */
+    outline: 2px solid white; /* White outline */
+    padding: 5px 10px; /* Add padding for outline */
+    display: inline-block; /* Ensure inline-block to enable padding */
+  }
+  h1:hover {
+    font-size: 40px; /* Increase font size on hover */
+  }
+  h1:active {
+    font-size: 42px; /* Increase font size when clicked */
+  }
+  h2 {
+    font-size: 24px;
+    color: #e6e6fa; /* Lilac */
+    margin-bottom: 20px; /* Add some space below the subtitle */
+    display: none; /* Initially hidden */
+  }
+  .lyrics {
+    color: white;
+    text-align: center;
+    display: none; /* Initially hidden */
+  }
+  .love-message {
+    font-size: 16px;
+    color: white;
+    font-family: 'Comic Sans MS', cursive; /* Cute font */
+    margin-top: 20px;
+  }
+  #youtube-player {
+    display: none; /* Initially hidden */
+    margin: 0 auto; /* Center the video horizontally */
+  }
+</style>
+<!-- Include the YouTube Player API script -->
+<script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+
+<div class="container" id="section1">
+  <h1 onclick="showSubtitle()">Welcome Cutie Patutie</h1>
+  <h2 id="subtitle">Cheerio - the sezziest, most bootyful human alive.</h2>
+  <!-- Embedded YouTube video -->
+  <iframe id="youtube-player" width="560" height="315" src="https://www.youtube.com/embed/hfNDzrC-1Ww?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+  <!-- Lyrics -->
+  <div class="lyrics" id="lyrics">
+    <h3>Lyrics</h3>
+    <p>Wouldn't you know<br>
+       Those brown eyes<br>
+       See a side of me nobody knows<br>
+       Nobody knows but you<br>
+       I wanna go<br>
+       Go wherever your thoughts lead you<br>
+       Treasures you hold<br>
+       Why don't you show the truth?<br>
+       'Cause what I've seen so far is heaven sent<br>
+       Eloquent and decadent<br>
+       Every drop you send my way I hold on, babe<br>
+       I'd live this whole damn life all over again<br>
+       Just to meet you once again<br>
+       Every second, minute, hour still in place<br>
+       'Cause you've always been mine (mine, mine)<br>
+       (Mine) mine<br>
+       You've always been mine (mine, mine)<br>
+       (Mine) mine<br>
+       You've always been<br>
+       Would you believe<br>
+       Looked all over creation<br>
+       When you had the keys<br>
+       Standing in front of me<br>
+       How could it be?<br>
+       Almost gave up completely<br>
+       But love wouldn't leave<br>
+       Love wanted me to see<br>
+       And what I've seen so far is heaven sent<br>
+       Eloquent and decadent<br>
+       Every drop you send my way I hold on, babe<br>
+       I'd live this whole damn life all over again<br>
+       Just to meet you once again<br>
+       Every second, minute, hour still in place<br>
+       'Cause you've always been mine (mine, mine)<br>
+       (Mine) mine<br>
+       You've always been mine (mine, mine)<br>
+       (Mine) mine<br>
+       You've always been</p>
+  </div>
+</div>
+
+<!-- Placeholder to create space for scrolling -->
+<div style="height: 1000px;"></div>
+
+<!-- Love message -->
+<div class="love-message">
+  Love you, always.
+</div>
+
+<!-- Script to initialize and control the YouTube player -->
+<script>
+  // Function to show subtitle, video, and hide the welcome title
+  function showSubtitle() {
+    document.getElementById('subtitle').style.display = 'block';
+    document.getElementById('youtube-player').style.display = 'block';
+    document.getElementById('lyrics').style.display = 'block'; // Show lyrics
+    document.querySelector('h1').style.display = 'none';
+  }
+
+  // This function creates an instance of the YouTube player
+  function onYouTubeIframeAPIReady() {
+    new YT.Player('youtube-player', {
+      events: {
+        'onReady': onPlayerReady
+      }
+    });
+  }
+
+  // This function is called when the player is ready to receive API commands
+  function onPlayerReady(event) {
+    event.target.playVideo(); // Play the video automatically when ready
+  }
+</script>
+
+</body>
+</html>
